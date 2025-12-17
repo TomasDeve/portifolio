@@ -12,35 +12,36 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Global Colors */
 :root {
-  --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --background-color: #ffffff;
+  --default-color: #272829;
+  --heading-color: #050d18;
+  --accent-color: #149ddd;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+/* Nav Menu Colors */
+:root {
+  --nav-color: #a8a9b4;
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #040b14;
+  --nav-dropdown-background-color: #040b14;
+  --nav-dropdown-color: #a8a9b4;
+  --nav-dropdown-hover-color: #ffffff;
+}
 
+/* Color Presets */
 .light-background {
-  --background-color: #f4fafd;
+  /* você deixou claro que prefere branco nas seções "light-background" */
+  --background-color: #ffffff;
   --surface-color: #ffffff;
 }
 
@@ -87,8 +88,7 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
+/* PHP Email Form Messages */
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -161,10 +161,9 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 8px solid rgb(38, 100, 235); /* Define a cor azul diretamente */
-  border-radius: 50%; /* Mantém a borda arredondada */
+  border: 8px solid rgb(38, 100, 235);
+  border-radius: 50%;
 }
-
 
 .header .logo {
   line-height: 1;
@@ -333,7 +332,8 @@ h6 {
 
 .navmenu .dropdown a,
 .navmenu .dropdown a:focus {
-  color: --nav-dropdown-color;
+  /* corrigido: antes estava "color: --nav-dropdown-color;" */
+  color: var(--nav-dropdown-color);
 }
 
 .navmenu .dropdown a:hover,
@@ -624,32 +624,37 @@ section,
 # About Section
 --------------------------------------------------------------*/
 .about .content h2 {
-  font-weight: 700; /* Define a espessura da fonte do título */
-  font-size: 24px; /* Define o tamanho da fonte do título */
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: var(--heading-color);
 }
 
 .about .content ul {
-  list-style: none; /* Remove os marcadores da lista */
-  padding: 0; /* Remove o espaçamento interno da lista */
+  list-style: none;
+  padding: 0;
 }
 
 .about .content ul li {
-  margin-bottom: 10px; /* Reduz o espaçamento inferior entre os itens da lista para 10px */
-  display: flex; /* Exibe os itens da lista em layout flexível para melhor alinhamento */
-  align-items: center; /* Alinha os itens da lista ao centro verticalmente */
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .about .content ul strong {
-  margin-right: 10px; /* Adiciona um espaçamento à direita do texto em negrito */
+  margin-right: 10px;
 }
 
 .about .content ul i {
-  font-size: 16px; /* Define o tamanho do ícone */
-  margin-right: 5px; /* Adiciona um espaçamento à direita do ícone */
-  color: var(--accent-color); /* Define a cor do ícone com a cor de destaque */
-  line-height: 0; /* Define a altura da linha para garantir que os ícones estejam alinhados corretamente */
+  font-size: 16px;
+  margin-right: 5px;
+  color: var(--accent-color);
+  line-height: 0;
 }
-
 
 /*--------------------------------------------------------------
 # Stats Section
@@ -685,44 +690,55 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Skills Section - Seção de habilidades
+# Skills Section
 --------------------------------------------------------------*/
-
 .skills {
-  padding-top: 0px; /* Mantém o espaçamento superior mínimo */
-  padding-bottom: 60px; /* Mantém o espaçamento inferior */
+  padding-top: 0px;
+  padding-bottom: 60px;
 }
 
-/* Título da seção de habilidades (skills) */
 .skills .section-title h2 {
-  margin-bottom: 0px; /* Diminui o espaçamento inferior do título */
+  margin-bottom: 0px;
 }
 
-/* Estilo das Caixinhas de Habilidades */
+/* Caixinhas de habilidades */
 .skill-box {
-  background-color: #ffffff; /* Cor de fundo branca */
-  padding: 20px; /* Espaçamento interno da caixinha */
-  text-align: center; /* Centraliza o conteúdo da caixinha */
-  border: 1px solid var(--default-color); /* Define uma borda leve */
-  border-radius: 10px; /* Deixa os cantos arredondados */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transições suaves ao passar o mouse */
-  margin-bottom: 20px; /* Espaçamento entre as caixinhas */
-  margin-top: 10px; /* Diminui o espaçamento superior das caixas de habilidades */
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
-/* Estilo para quando o mouse estiver sobre a caixinha */
 .skill-box:hover {
-  transform: scale(1.05); /* Aumenta ligeiramente a caixinha */
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.skill-box img {
+  width: 80px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
 
+.skill-box:hover img {
+  transform: scale(1.1);
+}
+
+.skill-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading-color);
+}
 
 /*--------------------------------------------------------------
-# Resume Section
+# Resume (ajustado para o seu HTML, que usa .resume-title/.resume-item sem wrapper .resume)
 --------------------------------------------------------------*/
-.resume .resume-title {
+.resume-title {
   color: var(--heading-color);
   font-size: 26px;
   font-weight: 700;
@@ -730,57 +746,61 @@ section,
   margin-bottom: 20px;
 }
 
-.resume .resume-item {
-  padding: 0 0 20px 40px; /* Aumentei o padding-left para 40px */
-  margin-top: -2px;
-  border-left: 2px solid var(--accent-color);
+/* item do currículo */
+.resume-item {
+  padding: 0 0 20px 30px;
+  margin-top: 10px;
+  border-left: 3px solid var(--accent-color);
   position: relative;
 }
 
-.resume .resume-item h4 {
-  line-height: 18px;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 10px;
-}
-
-.resume .resume-item h5 {
-  font-size: 16px;
-  padding: 5px 15px;
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.resume .resume-item ul {
-  padding-left: 40px; /* Aumentei o padding-left para 40px */
-}
-
-.resume .resume-item ul li {
-  padding-bottom: 10px;
-}
-
-.resume .resume-item:last-child {
-  padding-bottom: 0;
-}
-
-.resume .resume-item::before {
+.resume-item::before {
   content: "";
   position: absolute;
   width: 16px;
   height: 16px;
   border-radius: 50px;
-  left: -9px;
+  left: -10px;
   top: 0;
   background: var(--background-color);
   border: 2px solid var(--accent-color);
 }
 
+.resume-item h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.resume-item h5 {
+  font-size: 16px;
+  color: #7a7a7a;
+  margin-bottom: 5px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.resume-item p {
+  font-size: 16px;
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.resume-item ul {
+  padding-left: 40px;
+}
+
+.resume-item ul li {
+  padding-bottom: 10px;
+}
 
 /*--------------------------------------------------------------
-# Portfolio Section
+# Portfolio Section (template)
 --------------------------------------------------------------*/
 .portfolio .portfolio-filters {
   padding: 0;
@@ -893,7 +913,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Services Section
+# Services Section (template)
 --------------------------------------------------------------*/
 .services .service-item {
   position: relative;
@@ -946,7 +966,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Testimonials Section
+# Testimonials Section (template)
 --------------------------------------------------------------*/
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
@@ -1043,7 +1063,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Contact Section
+# Contact Section (template - mantido)
 --------------------------------------------------------------*/
 .contact .info-wrap {
   background-color: var(--surface-color);
@@ -1144,7 +1164,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Portfolio Details Section
+# Portfolio Details Section (template)
 --------------------------------------------------------------*/
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
@@ -1205,7 +1225,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Service Details Section
+# Service Details Section (template)
 --------------------------------------------------------------*/
 .service-details .services-list {
   padding: 10px 30px;
@@ -1270,12 +1290,12 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
+# Starter Section (se existir)
 --------------------------------------------------------------*/
 .starter-section {
   background-color: #f0f0f0;
   padding: 20px;
-  text-align: center; 
+  text-align: center;
 }
 
 .scroll-effect {
@@ -1291,158 +1311,68 @@ section,
   transform: translateY(-20%);
 }
 
-
-/* Estilo das Caixinhas de Habilidades */
-.skill-box {
-  background-color: #ffffff; /* Cor de fundo branca */
-  padding: 20px; /* Espaçamento interno da caixinha */
-  text-align: center; /* Centraliza o conteúdo da caixinha */
-  border: 1px solid var(--default-color); /* Define uma borda leve */
-  border-radius: 10px; /* Deixa os cantos arredondados */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transições suaves ao passar o mouse */
-  margin-bottom: 20px; /* Espaçamento entre as caixinhas */
-}
-
-/* Estilo para quando o mouse estiver sobre a caixinha */
-.skill-box:hover {
-  transform: scale(1.05); /* Aumenta ligeiramente a caixinha */
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
-}
-
-/* Estilo das Imagens dentro das Caixinhas */
-.skill-box img {
-  width: 80px; /* Tamanho das imagens */
-  margin-bottom: 10px; /* Espaçamento abaixo da imagem */
-  transition: transform 0.3s ease-in-out; /* Transição suave ao passar o mouse */
-}
-
-/* Estilo para aumentar a imagem quando o mouse estiver sobre a caixinha */
-.skill-box:hover img {
-  transform: scale(1.1); /* Aumenta ligeiramente a imagem ao passar o mouse */
-}
-
-/* Texto das Habilidades */
-.skill-box h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--heading-color); /* Cor do texto */
-}
-
-.light-background {
-  --background-color: #ffffff; /* Altere para branco */
-  --surface-color: #ffffff;
-}
-
-
-/* Adicionar margem à esquerda à coluna de experiência profissional */
-.col-lg-6 {
-  margin-left: 20px; /* Ajuste o valor conforme necessário */
-}
-
-/* Se preferir ajustar diretamente no item do currículo */
-.resume-item {
-  padding-left: 40px; /* Já existente, pode aumentar esse valor */
-}
-
-
-
-/* Ajuste de margem e padding na coluna de experiência */
-.col-lg-6 {
-  margin-left: 20px; /* Ajuste o valor conforme necessário para dar espaçamento */
-}
-
-/* Ajuste no item de currículo (resume-item) */
-.resume-item {
-  padding: 0 0 20px 30px; /* Ajusta o padding esquerdo */
-  margin-top: 10px; /* Aumenta o espaçamento entre os itens */
-  border-left: 3px solid var(--accent-color); /* Ajusta a espessura e a cor da linha à esquerda */
-  position: relative;
-}
-
-/* Estilo para o título do cargo */
-.resume-item h4 {
-  font-size: 22px; /* Aumenta o tamanho da fonte do cargo */
-  font-weight: 700; /* Aumenta o peso da fonte */
-  color: #000; /* Define uma cor preta para o título do cargo */
-  margin-bottom: 5px; /* Reduz o espaçamento inferior */
-}
-
-/* Estilo para o nome da empresa */
-.resume-item h5 {
-  font-size: 16px;
-  color: #7a7a7a; /* Coloca a cor cinza para o nome da empresa */
-  margin-bottom: 5px;
-}
-
-/* Estilo para a data e localização */
-.resume-item .experience-date, .resume-item .experience-location {
-  font-size: 14px; /* Tamanho da fonte para a data e a localização */
-  color: #7a7a7a; /* Coloca a cor cinza para a data e localização */
-  display: block; /* Garante que eles estejam em linhas separadas */
-  margin-bottom: 10px; /* Dá um espaço abaixo */
-}
-
-/* Estilo para a descrição */
-.resume-item p {
-  font-size: 16px;
-  font-style: italic; /* Estilo em itálico para a descrição */
-  color: #555; /* Cor cinza escuro para a descrição */
-  line-height: 1.6;
-  margin-top: 15px;
-}
-
-
-.about .content h2 {
-  font-size: 32px; /* Ajuste o tamanho da fonte para ser igual */
-  font-weight: 700; /* Aumenta o peso da fonte para negrito */
-  text-transform: uppercase; /* Transforma o texto para letras maiúsculas */
-  letter-spacing: 1px; /* Adiciona espaçamento entre as letras */
-  border-bottom: 3px solid var(--accent-color); /* Adiciona uma linha inferior como destaque */
-  padding-bottom: 10px; /* Adiciona espaçamento inferior para a linha */
-  margin-bottom: 20px; /* Controla o espaçamento inferior */
-  color: var(--heading-color); /* Define a cor do título */
-}
-
-
-/* Certificates Section */
+/*--------------------------------------------------------------
+# Certificates (AJUSTADO PARA O SEU HTML + hover + link no card inteiro)
+--------------------------------------------------------------*/
 .certificates {
   padding: 60px 0;
 }
 
-.certificate-card {
+/* Faz cada coluna do grid esticar, para o card ficar com altura consistente */
+#certificates .row > div {
+  display: flex;
+}
+
+/* Link que envolve o card inteiro */
+.certificate-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;           /* mantém cores do texto */
+  text-decoration: none;    /* remove sublinhado */
+}
+
+/* Card */
+#certificates .certificate-card {
+  width: 100%;
+  height: 140px;            /* AJUSTE se quiser maior/menor */
+  display: flex;
+  align-items: center;
+
   background-color: var(--surface-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.10);
   border-radius: 10px;
-  transition: box-shadow 0.3s ease-in-out;
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
-.certificate-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+/* Hover igual ao dos contatos */
+.certificate-link:hover .certificate-card {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
-.certificate-card h4 {
+/* Acessibilidade (TAB) */
+.certificate-link:focus-visible .certificate-card {
+  outline: 3px solid color-mix(in srgb, var(--accent-color), transparent 65%);
+  outline-offset: 3px;
+}
+
+#certificates .certificate-card h4 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
-.certificate-card p {
+#certificates .certificate-card p {
   font-size: 14px;
   color: #6c757d;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/*--------------------------------------------------------------
+# Contact cards (do seu HTML: .contact-container / .contact-item)
+--------------------------------------------------------------*/
 .contact-container {
   display: flex;
   justify-content: space-between;
@@ -1452,11 +1382,15 @@ section,
   padding: 20px;
 }
 
+/* item */
 .contact-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
-  flex: 1 1 calc(33.333% - 40px); /* Garante que as caixas fiquem lado a lado */
+  flex: 1 1 calc(33.333% - 40px);
   max-width: 300px;
   margin: 10px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
@@ -1497,44 +1431,217 @@ section,
 }
 
 
-.contact-item {
-  display: block;
-  text-decoration: none;
-  color: inherit; /* Mantém a cor dos textos original */
+
+
+
+
+
+
+
+
+
+/* Timeline do currículo — versão limpa e alinhada */
+.resume-item {
+  position: relative;
+  padding: 10px 0 20px 40px; /* espaço superior + esquerda */
+  border-left: none !important;
+}
+
+/* Bolinha */
+.resume-item::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+
+  left: 15px;   /* centralizada em relação à linha */
+  top: 10px;    /* não corta mais */
+  z-index: 2;
+}
+
+/* Linha vertical */
+.resume-item::after {
+  content: "";
+  position: absolute;
+  top: 26px;    /* começa abaixo da bolinha */
+  bottom: 0;
+  left: 20px;   /* alinhada com o centro da bolinha */
+  width: 3px;
+  background: var(--accent-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================
+   Ajustes apenas para a sessão #skills
+   ========================== */
+
+/* Espaçamento lateral interno apenas para a sessão (não afeta outras sections) */
+#skills .container {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Forçar colunas a terem mesma altura (cada coluna será um flex container) */
+#skills .row > [class*="col-"] {
+  display: flex;
+  align-items: stretch;
+  /* sem padding extra nas colunas: o gap é controlado pelo .row.g-* do bootstrap */
+}
+
+/* Skill box: ocupa toda a coluna, conteúdo centralizado vertical/horizontalmente */
+#skills .skill-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  flex: 1 1 calc(33.333% - 40px);
-  max-width: 300px;
-  margin: 10px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border-radius: 12px;
+  padding: 22px;            /* espaço interno da caixa */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .22s ease, box-shadow .22s ease;
+  margin: 0;                /* row.g-* controla o gap entre colunas/linhas */
+  min-height: 150px;        /* define altura consistente — ajuste se quiser maior/menor */
+}
+
+/* Conteúdo dentro da caixinha */
+#skills .skill-box .skill-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
   text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.contact-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+/* Imagem: tamanho controlado e responsivo */
+#skills .skill-box img {
+  width: 92px;
+  max-width: 36%;
+  height: auto;
+  transition: transform .22s ease;
 }
 
-.contact-item i {
-  font-size: 36px;
-  color: #007bff;
-  margin-bottom: 10px;
-}
-
-.contact-item h4,
-.contact-item p {
-  margin: 10px 0;
-}
-
-.contact-item p {
-  font-size: 16px;
-  color: #007bff;
-}
-
-.contact-item h4 {
+/* Títulos */
+#skills .skill-box h3 {
+  margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: var(--heading-color);
+}
+
+/* Hover mais sutil */
+#skills .skill-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+}
+
+/* Ajustes responsivos: menor altura/imagens em telas pequenas */
+@media (max-width: 767.98px) {
+  #skills .skill-box {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  #skills .skill-box img {
+    width: 68px;
+    max-width: 34%;
+  }
+
+  #skills .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* Opcional: se quiser caixinhas mais compactas, reduza o gap global via utilitário bootstrap (g-3/g-2)
+   ou ajuste o min-height acima. */
+
+
+
+   /* aumenta espaço à esquerda só do título */
+#resume .resume-title {
+  padding-left: 10px; /* ajuste o valor para mais/menos */
+}
+
+/* aumenta espaço à esquerda só do título Formação Acadêmica */
+.resume-title--academic {
+  padding-left: 10px; /* ajuste o valor para mais/menos */
+}
+
+/* opcional: reduzir padding em telas pequenas */
+@media (max-width: 767.98px) {
+  .resume-title--academic {
+    padding-left: 6px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* diminui espaço entre o título e o conteúdo só na sessão "Certificados" */
+#certificates .section-title {
+  padding-bottom: 30px; /* antes era 60px globalmente */
+}
+
+/* reduz os espaçamentos internos do H2 dentro dessa seção */
+#certificates .section-title h2 {
+  margin-bottom: 8px;   /* antes era 20px */
+  padding-bottom: 8px;  /* antes era 20px (pseudo-linha azul contada no visual) */
+}
+
+/* opcional: ajuste responsivo (um pouco mais de espaço em telas muito pequenas) */
+@media (max-width: 575.98px) {
+  #certificates .section-title {
+    padding-bottom: 26px;
+  }
+  #certificates .section-title h2 {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
 }
